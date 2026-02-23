@@ -1,4 +1,4 @@
-function mat=MotionBasedMultiObjectTrackingExample(VecFrame,channel,GreenOrRed,expe_name,invisibleForTooLong,XnoiseKalman,YnoiseKalman,KeepMe)
+function mat=MultiObjectTracking(VecFrame,channel,GreenOrRed,expe_Path,invisibleForTooLong,XnoiseKalman,YnoiseKalman,KeepMe)
 % Create System objects used for reading video, detecting moving objects,
 % and displaying the results.
 obj = setupSystemObjects();
@@ -12,7 +12,7 @@ m=1;
 % Detect moving objects, and track them across video frames.
 for k=VecFrame
     %frame = readFrame(obj.reader);
-    t=Tiff([expe_name,'\Frame',num2str(k),'.tiff']);
+    t=Tiff([expe_Path,'Frame',num2str(k),'.tiff']);
     y=read(t);
     y = mat2gray(y);
     y=y(limy,limx);
